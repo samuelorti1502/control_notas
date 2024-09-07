@@ -1,0 +1,63 @@
+.seccion-gaseosas {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+  min-width: 280px;
+  padding: 20px 15px 50px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.div-titulo {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.gaseosas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.gaseosa-item {
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  text-align: center; 
+}
+
+.bebida-item img {
+  width: 100%;
+  border-radius: 0;
+  margin: 0; 
+  max-width: none; 
+  object-fit: cover;
+}
+
+.gaseosa-item button {
+    border: none;
+    border-radius: 15px;
+    background-color: #f28a2e; 
+    color: white; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    margin-top: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .gaseosa-item h4 {
+    font-weight: bold; /* Texto en negrita */
+    text-align: left; /* Alineamos el texto a la izquierda */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+  }
+
+  .gaseosa-item p {
+    text-align: left;
+    margin: 0;
+    margin-bottom: 10px; /* Agregamos un margen inferior entre la descripción y el botón */
+  }
+  

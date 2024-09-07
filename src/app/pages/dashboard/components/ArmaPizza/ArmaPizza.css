@@ -1,0 +1,251 @@
+.modal-armar-pizza {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    z-index: 2;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.hidde-scroll {
+    overflow: hidden;
+}
+
+.bg-modal-armar-pizza {
+    background: rgba(0,0,0,0.4);
+}
+
+.description-armar {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 20px;
+}
+.section-pizza {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+}
+
+.section-pizza-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border: 1px solid #8a8a8a;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    color: #8a8a8a;
+}
+
+.title-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.title-item span {
+    display: grid;
+    text-align: center;
+    background: grey;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 10px;
+    align-items: center;
+}
+
+.title-item h4 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.section-pizza-item span {
+    text-align: right;
+}
+
+.tipos-salsa {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+}
+
+.tipos-salsa-container-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.tipos-salsa-item {
+    border: 1px solid #858383;
+    display: grid;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.opcion-queso {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+}
+
+.queso-container-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.queso-item {
+    border: 1px solid #858383;
+    display: grid;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.tipos-carne {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+}
+
+.tipos-carne-container-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.tipos-carne-item {
+    border: 1px solid #858383;
+    display: grid;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.tipos-vegetales {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+}
+
+.tipos-vegetales-container-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.tipos-vegetales-item {
+    border: 1px solid #858383;
+    display: grid;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px; /* Ajusta la posición superior según tus necesidades */
+    right: 10px; /* Ajusta la posición derecha según tus necesidades */
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close-button img {
+    width: 20px; /* Ancho deseado para la imagen de cierre */
+  }
+
+  .aumentar-icon img {
+    width: 25px; /* Tamaño personalizado */
+    height: 25px; /* Tamaño personalizado */
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+  }
+  
+  /* Estilo para el icono de añadir al pedido */
+  .pedido-icon img {
+    width: 20px; /* Tamaño personalizado */
+    height: 20px; /* Tamaño personalizado */
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+  }
+  
+  /* Estilo para el texto "Añadir al pedido" */
+.button-add-order-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 15px;
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 0 40px;
+}
+.add-to-order-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    height: 50px;
+    background-color: #f28a2e;
+    border-radius: 10px;
+    justify-items: center;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 0.8em;
+}
+
+.add-remove {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+}
+.icon-img {
+    width: 100%;
+    height: 100%;
+}
+
+.add-remove {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+}
+
+.size-icon {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+}
+.add-icon {
+    max-width: 15px;
+}
+
+.min-price {
+    font-size: 15px;
+}
+
+.padding-side {
+    padding: 0 20px;
+}
+
+.div-radio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.div-radio input {
+    max-width: 15px;
+}
+.item-focus {
+    border: 2px solid green;
+}
+
+.item-radio-none input {
+    appearance: none;
+}

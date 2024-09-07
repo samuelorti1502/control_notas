@@ -1,0 +1,97 @@
+.styles_modal-container__7ya2m {
+    width: 100%; 
+    position: fixed;
+    right: 0;
+    top: 0; 
+    height: 100%; 
+    transform: translateX(0); 
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+
+
+  
+  .styles_backdrop__2z0l5 {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .style_title {
+    text-align: center;
+    display: grid;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .styles_step-container__gtWD0 p {
+    display: inline;
+    display: grid;
+  }
+
+  .styles_description__tAUzm {
+    text-align: center;
+  }
+
+  .styles_disclaimer__rimWB {
+    text-align: center;
+  }
+ 
+
+  .steps-pizza {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.steps-pizza-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+  .steps-pizza img {
+    max-width: 50px;
+}
+
+
+  .añadir-al-pedido-container{
+    display: inline;
+    display: grid;
+  }
+
+
+
+.hidde-scroll {
+  overflow: hidden;
+}
+
+.section-scroll {
+  overflow: auto;
+  padding: 0 20px;
+}
+
+.container-next {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100px;
+  margin-top: auto;
+  padding: 20px;
+}
+
+.button-next {
+  background-color:#f28a2e;;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+.padding-fase {
+  padding: 0 20px;
+}
+

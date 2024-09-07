@@ -1,0 +1,135 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Columna izquierda para datos del cliente, columna derecha para resumen y métodos de pago */
+    max-width: 1250px;
+    gap: 20px;
+  }
+  
+  .contenedor-datos {
+    margin-top: 100px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    padding: 20px 15px 50px;
+    background-color: #fff;
+    margin-bottom: 100px;
+    background-color: #1e1e2d;
+  }
+  
+  .contenedor-derecho {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contenedor-pago {
+    margin-top: 100px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    padding: 20px 15px 50px;
+    background-color: #fff;
+    margin-bottom: 100px;
+    background-color: #1e1e2d;
+    height: 300px;
+  }
+  
+  .pago-resumen {
+    margin-top: -75px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    padding: 20px 15px 50px;
+    background-color: #fff;
+    margin-bottom: 100px;
+    background-color: #1e1e2d;
+  }
+  
+  .pagar {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0; /* Establece un alto fijo */
+  background-color: #f28a2e;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%
+  }
+  
+  .titulo, .datos-cliente {
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 40px;
+  }
+  
+  .pago-efectivo,
+  .pago-tarjeta {
+    margin-top: 20px;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 10px 0; 
+    margin-left: 40px;
+    align-items: center;
+    flex: 1;
+    font-size: 15px;
+    border-bottom: #1e1e2d;
+    height: 90px;
+  }
+  
+  .forma-pago {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    margin: -5px;
+  }
+  
+  .img-efectivo,
+  .img-tarjeta {
+    width: 60px;
+    height: 45px;
+  }
+
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  
+  .input-container .custom-label {
+    width: 100px; /* Ancho del label */
+    padding-right: 10px; /* Espacio entre el label y el input */
+    text-align: right; /* Alinea el texto del label a la derecha */
+  }
+  
+  .input-container input {
+    flex: 1; /* Ocupa el espacio restante */
+    height: 40px; /* Aumenta la altura */
+    font-size: 16px; /* Aumenta el tamaño de fuente */
+  }
+  
+  .input-container input {
+    flex: 2; /* Ocupa más espacio que el label */
+    height: 60px; /* Aumentar la altura */
+    font-size: 16px; /* Aumentar el tamaño de fuente */
+  }
+
+  .custom-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 0.3s; 
+  }
+
+  .contenedor-pago form {
+    display: flex;
+  }
+  
