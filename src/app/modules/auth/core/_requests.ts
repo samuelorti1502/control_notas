@@ -1,10 +1,16 @@
 import axios from 'axios'
+import { createClient } from '@supabase/supabase-js'
 import {UserModel} from './_models'
 
-const API_URL = process.env.REACT_APP_API_URL
+const API_URL = process.env.REACT_APP_SUPABASE_URL
+const API_Key = process.env.REACT_APP_SUPABASE_ANON_KEY
+const supabase = createClient(API_URL, API_Key);
 
 export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/verify_token`
 export const LOGIN_URL = `${API_URL}/usr/login`
+
+//token?grant_type=password
+
 export const REQUEST_PASSWORD_URL = `${API_URL}/correo`
 export const CORREO_COMNFIRMAR_CUENTA = `${API_URL}/correo/confirmar`
 export const REQUEST_NEW_PASSWORD = `${API_URL}/correo/confirmar-password`
@@ -14,16 +20,43 @@ export const MODIFICAR_URL = `${API_URL}/Usuario/modificar`
 export const PRODUCTO_URL = `${API_URL}/menu`
 export const CATEGORIA_URL = `${API_URL}/categorias`
 
-// Server should return AuthModel
-export function login(usuario: string, password: string) {
-  console.log(usuario)
-  return axios.post<any>(LOGIN_URL, {
-    usuario: usuario,
-    password,
-    id: 1,
-    rol: '',
-  })
+// Función de login usando el SDK de Supabase
+export async function login(usuario: string, password: string) {
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: usuario,
+      password: password,
+
+    }
+  )
+  console.log("peticion")
+
+    if (error) {
+      throw new Error(error.message)
+
+    console.log("error "+error.message)
+
+    }
+
+    return data
+  } catch (error) {
+    console.error('Error en el login:', error.message)
+    throw error
+  }
 }
+
+
+// Server should return AuthModel
+//export function login(usuario: string, password: string) {
+  //console.log(usuario)
+  //return axios.post<any>(LOGIN_URL, {
+    //usuario: usuario,
+    //password,
+    //id: 1,
+    //rol: '',
+  //})
+//}
+
 
 export function CorreoConfirmarCuenta(email: string) {
   axios.get<{result: boolean}>(CORREO_COMNFIRMAR_CUENTA+`/${email}`)
@@ -31,27 +64,25 @@ export function CorreoConfirmarCuenta(email: string) {
 
 // Server should return AuthModel
 export function register(
-  nombres: string,
-  apellidos: string,
-  email: string,
-  usuario: string,
-  password: string,
-  rol: string,
-  usuario_creacion: string
+email: string,
+firstname: string,
+lastname:  String,
+passwords: string,
+  changepassword: string,
 ) {
 
   return axios.post(REGISTER_URL, {
     id: 1,
-    nombres: nombres,
-    apellidos : apellidos,
+    nombres: firstname,
+    apellidos : lastname,
     email : email,
-    usuario: usuario,
-    password: password,
-    rol : rol,
+    usuario: firstname,
+    password: passwords,
+    rol : firstname,
     estatus: 'Activo',
     token: 'nullXD',
     confirmado: 0,
-    usuario_creacion: usuario_creacion,
+    usuario_creacion: firstname,
   })
 }
 

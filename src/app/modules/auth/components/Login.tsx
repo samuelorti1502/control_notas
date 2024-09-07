@@ -56,7 +56,8 @@ export function Login() {
       } catch (error) {
         console.error(error)
         saveAuth(undefined)
-        setStatus('Los datos de inicio de sesión son incorrectos.')
+        console.log("error Login:"+error)
+        setStatus(error+"")
         setSubmitting(false)
         setLoading(false)
         
