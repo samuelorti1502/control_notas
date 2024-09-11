@@ -19,8 +19,6 @@ const initialValues = {
   acceptTerms: false,
 }
 
-
-
 const registrationSchema = Yup.object().shape({
   firstname: Yup.string()
     .min(3, 'Minimum 3 symbols')
@@ -57,16 +55,16 @@ export function Registration() {
     onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       try {
-        const {data: auth} = await register(
-          values.email,
-          values.firstname,
-          values.lastname,
-          values.password,
-          values.changepassword
-        )
-        saveAuth(auth)
-        const {data: user} = await getUserByToken(auth.api_token)
-        setCurrentUser(user)
+      //  const {data: auth} = await register(
+      //    values.email,
+       //    values.firstname,
+        //   values.lastname,
+       //    values.password,
+       //    values.changepassword
+       //  )
+      //   saveAuth(auth)
+     //    const {data: user} = await getUserByToken(auth.api_token)
+      //   setCurrentUser(user)
       } catch (error) {
         console.error(error)
         saveAuth(undefined)

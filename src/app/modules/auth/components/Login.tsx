@@ -41,14 +41,14 @@ export function Login() {
     onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       try {
-        const {data: auth}: any = await login(values.username, values.password)
+        const  auth = await login(values.username, values.password)
         if(true) {
-          console.log('1')
+          console.log(auth)
           saveAuth(auth)
-          setCurrentUser(auth)
+          setCurrentUser(auth.user)
         } else {
           saveAuth(undefined)
-          setStatus(auth.mensaje)
+          setStatus(auth.user.aud)
           setSubmitting(false)
           setLoading(false)
             console.log('2')

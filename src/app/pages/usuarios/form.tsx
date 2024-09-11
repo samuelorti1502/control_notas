@@ -118,8 +118,8 @@ const Example: React.FC<FormProps> = ({modalTitle}) => {
           values.email,
           values.usuario,
           values.password,
-          initialValues.rol,
-          initialValues.usuario_creacion
+     //     initialValues.rol,
+       //   initialValues.usuario_creacion
         )
         handleActualizarTabla();
         //const {data: user} = await getUserByToken(auth.api_token)

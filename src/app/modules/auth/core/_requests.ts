@@ -29,7 +29,7 @@ export async function login(usuario: string, password: string) {
 
     }
   )
-  console.log("peticion")
+  console.log(data)
 
     if (error) {
       throw new Error(error.message)
@@ -37,7 +37,7 @@ export async function login(usuario: string, password: string) {
     console.log("error "+error.message)
 
     }
-
+    console.log(data.user.email)
     return data
   } catch (error) {
     console.error('Error en el login:', error.message)
