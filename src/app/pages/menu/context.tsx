@@ -14,8 +14,10 @@ export const ContentProvider: FC<Props> = ({children}) => {
   const [allRoles, setAllRoles] = useState<any>([])
 
   const all = async () => {
-    const response = await GetRoute('usuario/listar')
-    setAllData(response.length > 0 ? response : [])
+    //const response = await GetRoute('usuario/example')
+   // setAllData(response.length > 0 ? response : [])
+
+
   }
 
   const handleClose = () => setShow(false)
@@ -43,10 +45,10 @@ export const ContentProvider: FC<Props> = ({children}) => {
   }
 
   const roles =async (data: any) => {
-    /*console.log("hola")
+    console.log("hola")
     const response = await GetRoute('rol/listar')
-    console.log(response.message)*/
-    //setAllRoles(response.length > 0 ? response : [])
+    console.log(response.message)
+    setAllRoles(response.length > 0 ? response : [])
     setAllRoles("hola")
     handleShow()
   }

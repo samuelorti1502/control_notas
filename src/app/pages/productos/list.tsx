@@ -1,106 +1,133 @@
-import { useContext, useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Button } from 'react-bootstrap'
-import { ContentContext } from './context'
 import DataTable from 'react-data-table-component'
-import { FormProd } from './form'
-import EliminarUsuario from './EliminarProducto'
-import EliminarProducto from './EliminarProducto'
+import { FormProd} from './form'
+import EliminarNota from './EliminarProducto'
+
+
 
 const Index = () => {
-  const { allData, eliminar } = useContext(ContentContext)
 
-  //d
-  const [showDelete, setShowDelete] = useState(false)
-  const [selectedUser, setSelectedUser] = useState(null);
 
-  const handleShowEliminar = (row) => {
-    setSelectedUser(row);
-    setShowDelete(true);
+ // Estado para la tabla
+ const [allData, setAllData] = useState([]);
+ const [showDelete, setShowDelete] = useState(false);
+ const [selectedRecord, setSelectedRecord] = useState(null);
 
-  }
 
-  const handleCloseModalEliminar = () => {
-    setSelectedUser(null);
-    setShowDelete(false);
-  }
-  //d
-
-  const handleDelete = (usuario: any) => {
-    eliminar(usuario)
-    //allData()
-  }
-
-  const [mostrar, setMostrar] = useState(false)
-  const [tipo, setTipo] = useState(0)
-  const [datosFila, setDatosFila] = useState()
-
-  const handleShowM = () => {
-    setMostrar(true)
-  }
-
-  const formatter = new Intl.NumberFormat('es-GT', {
-    style: 'currency',
-    currency: 'GTQ',
-  })
-
-  const columns = [
+ // Simulamos una función que devuelve algunos registros desde una "API"
+ const fetchSimulatedData = () => {
+  const data = [
     {
-      name: '#',
-      selector: (row: any) => row.id_prod_menu,
+      id_estudiante: 1,
+      nombre_estudiante: 'Juan Pérez',
+      asignatura: 'Matemáticas',
+      examen1: 80,
+      examen2: 85,
+      zona: 90,
+      examenFinal: 88,
+      total: 86,
     },
     {
-      name: 'Categoria',
-      selector: (row: any) => row.categoria,
-      //selector: (row: { nombres: any; }) => row.nombres,
+      id_estudiante: 2,
+      nombre_estudiante: 'María López',
+      asignatura: 'Ciencias',
+      examen1: 75,
+      examen2: 80,
+      zona: 85,
+      examenFinal: 90,
+      total: 83,
     },
     {
-      name: 'Producto',
-      selector: (row: any) => row.nombre,
+      id_estudiante: 3,
+      nombre_estudiante: 'Carlos García',
+      asignatura: 'Historia',
+      examen1: 70,
+      examen2: 75,
+      zona: 80,
+      examenFinal: 85,
+      total: 78,
     },
     {
-      name: 'Descripcion',
-      selector: (row: any) => row.descripcion,
+      id_estudiante: 4,
+      nombre_estudiante: 'Ana Hernández',
+      asignatura: 'Inglés',
+      examen1: 85,
+      examen2: 90,
+      zona: 95,
+      examenFinal: 92,
+      total: 90,
     },
-    {
-      name: 'Precio',
-      cell: (row: any) => formatter.format(row.precio),
-    },
-    {
-      name: 'Estatus',
-      cell: (row: any) => (
-        <div
-          style={{
-            backgroundColor: row.estatus === 'Activo' ? '#d6f0e0' : row.estatus === 'Inactivo' ? '#e66975' : row.estatus === 'Pendiente' ? '#f0e0d6' : '',
-            color: row.estatus === 'Activo' ? '#0d6832' : row.estatus === 'Inactivo' ? '#f80a22' : row.estatus === 'Pendiente' ? '#e0c440' : '',
-            borderRadius: '5px',
-            padding: '5px 10px',
-          }}
-        >
-          {/* {row.id_status === 1 ? 'Activo' : row.id_status === 4 ? 'Inactivo' : 'Otro'} */}
-          {row.estatus}
-        </div>
-      ),
-    },
-    {
-      name: 'Imagen',
-      cell: (row: any) => (
-        // row.imagen,
-        <img
-          src={`http://3.22.100.138/images/${row.imagen}`}
-          alt='Imagen'
-          style={{ width: '50px', height: '50px' }}
-        />
-      ),
-    },
-    {
+  ];
+  setAllData(data);
+};
+
+// Llamamos a la función simulada cuando el componente se monta
+useEffect(() => {
+  fetchSimulatedData();
+}, []);
+
+const handleShowEliminar = (row) => {
+  setSelectedRecord(row);
+  setShowDelete(true);
+}
+
+const handleCloseModalEliminar = () => {
+  setSelectedRecord(null);
+  setShowDelete(false);
+}
+
+
+const [mostrar, setMostrar] = useState(false)
+const [tipo, setTipo] = useState(0)
+const [datosFila, setDatosFila] = useState()
+
+const handleShowM = () => {
+  setMostrar(true)
+}
+
+const columns = [
+  {
+    name: 'ID Estudiante',
+    selector: (row) => row.id_estudiante,
+  },
+  {
+    name: 'Nombre',
+    selector: (row) => row.nombre_estudiante,
+  },
+  {
+    name: 'Asignatura',
+    selector: (row) => row.asignatura,
+  },
+  {
+    name: 'Examen 1',
+    selector: (row) => row.examen1,
+  },
+  {
+    name: 'Examen 2',
+    selector: (row) => row.examen2,
+  },
+  {
+    name: 'Zona',
+    selector: (row) => row.zona,
+  },
+  {
+    name: 'Examen Final',
+    selector: (row) => row.examenFinal,
+  },
+  {
+    name: 'Total',
+    selector: (row) => row.total,
+  },
+
+  {
       name: 'Acciones',
-      cell: (row: any) => (
+      cell: (row) => (
         <div>
           <Button
-            variant={'danger'}
+            variant='danger'
             className='btn-sm btn-icon'
             onClick={() => handleShowEliminar(row)}
-          //  onClick={() => handleDelete(row.usuario)}
           >
             <i className='bi bi-trash' />
           </Button>
@@ -115,7 +142,6 @@ const Index = () => {
           >
             <i className='bi bi-pencil' />
           </Button>
-
         </div>
       ),
     },
@@ -126,7 +152,6 @@ const Index = () => {
       style: {
         justifyContent: 'center',
         backgroundColor: '#FFA500',
-        //maxWidth: '90%',
         margin: 'auto',
       },
     },
@@ -141,7 +166,6 @@ const Index = () => {
         fontWeight: 'bold',
         paddingLeft: '0 8px',
         justifyContent: 'center',
-        justifyTitle: 'center',
         backgroundColor: '#FFA500',
       }
     },
@@ -149,17 +173,15 @@ const Index = () => {
       style: {
         fontSize: '12px',
         justifyContent: 'center',
-
       }
     }
-
   }
 
   return (
     <div>
       <DataTable
         className='form w-100'
-        title='Productos'
+        title='Control de Notas'
         columns={columns}
         data={allData}
         pagination
@@ -167,12 +189,11 @@ const Index = () => {
       />
       <FormProd mostrar={mostrar} setMostrar={setMostrar} tipo={tipo} datos={datosFila} />
       {showDelete && (
-        <EliminarProducto
-          modalTitle={'Eliminar Producto'}
+        <EliminarNota
+          modalTitle='Eliminar Nota'
           show={showDelete}
           handleClose={handleCloseModalEliminar}
-          selectedUser={selectedUser}
-
+          selectedUser={selectedRecord}
         />
       )}
     </div>

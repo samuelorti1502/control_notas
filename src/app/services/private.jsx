@@ -1,15 +1,16 @@
 const RouteBase = process.env.REACT_APP_API_URL
 const AUTH_LOCAL_STORAGE_KEY = 'kt-auth-react-v'
 
+
 export async function GetRoute(url) {
-  const response = await fetch(`${RouteBase}/${url}`, {
+ const response = await fetch(`${RouteBase}/${url}`, {
     method: 'GET',
     mode: 'cors',
     headers: {
       'Access-Control-Allow-Origin': '*',
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      //  Authorization: `Bearer ${JSON.parse(localStorage.getItem(AUTH_LOCAL_STORAGE_KEY))._token}`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem(AUTH_LOCAL_STORAGE_KEY))._token}`,
     },
   })
     .then((data) => data.json())

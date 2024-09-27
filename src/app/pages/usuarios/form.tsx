@@ -165,13 +165,13 @@ const Example: React.FC<FormProps> = ({modalTitle}) => {
 
   useEffect(() => {
     const fetchRoles = async () => {
-      try {
+   /*   try {
         const response = await axios.get('http://3.22.100.138:4000/api/rol/listar') // Reemplaza 'API_URL_AQUI' con tu URL de la API
         setRoles(response.data) // Suponiendo que la respuesta de la API sea un array de roles
         //console.log(response.data)
       } catch (error) {
         console.error('Error al obtener roles de la API', error)
-      }
+      }*/
     }
     fetchRoles()
   }, [])

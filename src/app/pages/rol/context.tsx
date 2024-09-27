@@ -47,8 +47,8 @@ export const ContentProvider: FC<Props> = ({ children }) => {
   };
 
   const state = async (data: any) => {
-    const response = await PostRoute(`rol/${data?.estado === 1 ? 'destroy' : 'active'}`, data);
-    console.log(response.message);
+  /* const response = await PostRoute(`rol/${data?.estado === 1 ? 'destroy' : 'active'}`, data);
+    console.log(response.message);*/
     all();
   };
 

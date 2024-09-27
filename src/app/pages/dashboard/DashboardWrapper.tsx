@@ -35,7 +35,7 @@ const DashboardPage: FC = () => (
       <div className='button-container'>
         <Link to='/asignar-mesa'>
           <button className='banner-button'>
-            Notas <FaArrowRight />
+            Notasl <FaArrowRight />
           </button>
         </Link>
        

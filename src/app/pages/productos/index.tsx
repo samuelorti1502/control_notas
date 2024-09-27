@@ -24,7 +24,7 @@ const Index = () => {
                 }}
 
             >
-                Nuevo Producto
+                Agregar Alumno
             </Button>
 
             <FormProd mostrar={mostrar} setMostrar={setMostrar} tipo={0} />

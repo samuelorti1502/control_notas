@@ -94,12 +94,12 @@ const FormProd = ({mostrar, setMostrar, tipo, datos}: any) => {
 
 
 
-  useEffect(() => {
+ /* useEffect(() => {
     datos?.imagen &&
     setImage(`http://3.22.100.138/images/${datos?.imagen || ''}`)
 
   }, [mostrar])
-
+*/
 
   const handleSaveChanges = (values: any) => {
     console.log('Form values:', values)
@@ -211,7 +211,7 @@ const FormProd = ({mostrar, setMostrar, tipo, datos}: any) => {
   
     <Modal show={mostrar} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{tipo === 0 ? 'Nuevo Producto' : `Editar Producto`}</Modal.Title>
+        <Modal.Title>{tipo === 0 ? 'Agregar Alumno' : `Editar Producto`}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {hasErrors === true && (

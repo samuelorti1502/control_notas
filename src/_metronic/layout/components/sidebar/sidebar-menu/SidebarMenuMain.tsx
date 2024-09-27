@@ -11,6 +11,7 @@ const SidebarMenuMain = () => {
   const isAdmin = currentUser && currentUser.rol === 'Administrador'
   const rol = currentUser.rol
 
+
   return (
     <>
       <SidebarMenuItem
@@ -19,12 +20,12 @@ const SidebarMenuMain = () => {
         title='Menu'
         fontIcon='bi-layers'
       />
-      {/* <SidebarMenuItem
+      { /*<SidebarMenuItem
         to='/dashboard'
         icon='/media/icons/duotune/art/art002.svg'
         title={intl.formatMessage({ id: 'MENU.DASHBOARD' })}
         fontIcon='bi-app-indicator'
-      /> */}
+      /> ¨*/}
       {/* <SidebarMenuItem
         to='/builder'
         icon='/media/icons/duotune/general/gen019.svg'
@@ -37,7 +38,7 @@ const SidebarMenuMain = () => {
         title='Rol'
         fontIcon='bi-layers'
       /> */}
-      {isAdmin && (
+      {true && (
         <>
           <div className='menu-item'>
             <div className='menu-content pt-8 pb-2'>
@@ -52,9 +53,11 @@ const SidebarMenuMain = () => {
           >
             <SidebarMenuItem to='/administracion/usuarios/nuevo' title='Listado' hasBullet={true} />
           </SidebarMenuItemWithSub>
-          <SidebarMenuItemWithSub
+
+          
+       <SidebarMenuItemWithSub
             to='/administracion/categorias'
-            title='Categorias'
+            title='Pro'
             icon='/media/icons/duotune/communication/com006.svg'
             fontIcon='bi-layers'
           >
@@ -67,11 +70,11 @@ const SidebarMenuMain = () => {
           </SidebarMenuItemWithSub>
           <SidebarMenuItemWithSub
             to='/administracion/productos'
-            title='Productos'
+            title='Notas'
             icon='/media/icons/duotune/communication/com006.svg'
             fontIcon='bi-layers'
           >
-            <SidebarMenuItem
+         <SidebarMenuItem
               to='/administracion/productos/listado'
               title='Listado'
               fontIcon='bi-archive'

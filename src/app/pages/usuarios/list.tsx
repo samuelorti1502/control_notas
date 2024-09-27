@@ -16,7 +16,7 @@ const Lista = () => {
 
  const handleDelete = (usuario: any) => {
     eliminar(usuario)
-    allData()
+ allData()
     
   }
   
