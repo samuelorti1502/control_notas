@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Button } from 'react-bootstrap'
 import DataTable from 'react-data-table-component'
-import { FormProd} from './form'
+import { FormNotas} from './form'
 import EliminarNota from './EliminarProducto'
 
 
@@ -187,7 +187,7 @@ const columns = [
         pagination
         customStyles={tableCustomStyles}
       />
-      <FormProd mostrar={mostrar} setMostrar={setMostrar} tipo={tipo} datos={datosFila} />
+      <FormNotas mostrar={mostrar} setMostrar={setMostrar} tipo={tipo} datos={datosFila} />
       {showDelete && (
         <EliminarNota
           modalTitle='Eliminar Nota'

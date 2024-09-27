@@ -38,7 +38,7 @@ const validationSchema = Yup.object().shape({
   // estatus: Yup.string().required('Estatus es requerido'),
 })
 
-const FormProd = ({mostrar, setMostrar, tipo, datos}: any) => {
+const FormNotas = ({mostrar, setMostrar, tipo, datos}: any) => {
   const [value, setValue] = useState('')
 
   const [archivo, setArchivo] = useState([])
@@ -559,4 +559,4 @@ const FormProd = ({mostrar, setMostrar, tipo, datos}: any) => {
   )
 }
 
-export {FormProd}
+export {FormNotas}

@@ -13,7 +13,8 @@ import FormaDePago from '../pages/dashboard/components/FormaDePago/FormaDePago'
 import Rol from '../pages/rol/'
 import Usuarios from '../pages/usuarios/'
 import Menu from '../pages/menu'
-import Prod from '../pages/productos'
+import Prod from '../pages/notas'
+import Estu from '../pages/estudiantes'
 import Cat from '../pages/categorias'
 
 const PrivateRoutes = () => {
@@ -54,10 +55,18 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='administracion/productos/*'
+          path='administracion/notas/*'
           element={
             <SuspensedView>
               <Prod />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='administracion/estudiantes/*'
+          element={
+            <SuspensedView>
+              <Estu />
             </SuspensedView>
           }
         />

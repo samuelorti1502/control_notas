@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { FormProd } from './form'
+import { FormNotas } from './form'
 import { ContentProvider } from './context'
 import Listado from './list'
 
@@ -27,7 +27,7 @@ const Index = () => {
                 Agregar Alumno
             </Button>
 
-            <FormProd mostrar={mostrar} setMostrar={setMostrar} tipo={0} />
+            <FormNotas mostrar={mostrar} setMostrar={setMostrar} tipo={0} />
 
             <Listado />
         </ContentProvider>

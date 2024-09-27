@@ -69,13 +69,26 @@ const SidebarMenuMain = () => {
             />
           </SidebarMenuItemWithSub>
           <SidebarMenuItemWithSub
-            to='/administracion/productos'
+            to='/administracion/notas'
             title='Notas'
             icon='/media/icons/duotune/communication/com006.svg'
             fontIcon='bi-layers'
           >
          <SidebarMenuItem
-              to='/administracion/productos/listado'
+              to='/administracion/notas/listado'
+              title='Listado'
+              fontIcon='bi-archive'
+              icon='/media/icons/duotune/general/gen022.svg'
+            />
+          </SidebarMenuItemWithSub>
+          <SidebarMenuItemWithSub
+            to='/administracion/estudiantes'
+            title='Estudiantes'
+            icon='/media/icons/duotune/communication/com006.svg'
+            fontIcon='bi-layers'
+          >
+         <SidebarMenuItem
+              to='/administracion/estudiantes/listado'
               title='Listado'
               fontIcon='bi-archive'
               icon='/media/icons/duotune/general/gen022.svg'
