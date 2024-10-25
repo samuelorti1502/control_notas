@@ -211,7 +211,7 @@ const FormNotas = ({mostrar, setMostrar, tipo, datos}: any) => {
   
     <Modal show={mostrar} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{tipo === 0 ? 'Agregar Alumno' : `Editar Producto`}</Modal.Title>
+        <Modal.Title>{tipo === 0 ? 'Agregar Alumnor' : `Editarr Producto`}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {hasErrors === true && (
@@ -230,14 +230,14 @@ const FormNotas = ({mostrar, setMostrar, tipo, datos}: any) => {
           <div className='fv-row mb-8'>
             <div style={{display: 'flex', alignItems: 'center'}}>
               <div style={{flex: 1}}>
-                <label className='form-label fw-bolder text-dark fs-6'>Producto</label>
+                <label className='form-label fw-bolder text-dark fs-6'>Nombre</label>
                 {tipo === 0 ? (
                   <input
                     // name='producto'
-                    placeholder='Producto'
+                    placeholder='Nombre del alumno'
                     type='text'
                     autoComplete='off'
-                    {...formik.getFieldProps('producto')}
+                    {...formik.getFieldProps('Nombre del alumno')}
                     className={clsx(
                       'form-control bg-transparent',
                       {
@@ -251,7 +251,7 @@ const FormNotas = ({mostrar, setMostrar, tipo, datos}: any) => {
                 ) : (
                   <input
                     // name='producto'
-                    placeholder='Producto'
+                    placeholder='Nomre del alumno'
                     type='text'
                     autoComplete='off'
                     defaultValue={datos.nombre || ''}
@@ -268,14 +268,14 @@ const FormNotas = ({mostrar, setMostrar, tipo, datos}: any) => {
                 )}
               </div>
               <div style={{flex: 1, marginLeft: '15px'}}>
-                <label className='form-label fw-bolder text-dark fs-6'>Descripción</label>
+                <label className='form-label fw-bolder text-dark fs-6'>Asignatura</label>
                 {tipo === 0 ? (
                   <textarea
-                    placeholder='Descripción'
+                    placeholder='Asignatura'
                     // component='textarea'
                     autoComplete='off'
                     rows={3}
-                    {...formik.getFieldProps('descripcion')}
+                    {...formik.getFieldProps('Asignatura')}
                     className={clsx(
                       'form-control bg-transparent',
                       {
@@ -288,7 +288,7 @@ const FormNotas = ({mostrar, setMostrar, tipo, datos}: any) => {
                   />
                 ) : (
                   <textarea
-                    placeholder='Descripción'
+                    placeholder='Asignatura'
                     // component='textarea'
                     autoComplete='off'
                     rows={3}
@@ -339,7 +339,7 @@ const FormNotas = ({mostrar, setMostrar, tipo, datos}: any) => {
                         </>
                       ) : (
                         <>
-                          <option value=''>Seleccionar categoria</option>
+                          <option value=''>Seleccionar s</option>
                           {categorias.map((cat: {id_categoria: number; nombre: string}) => (
                             <option key={cat.id_categoria} value={cat.id_categoria}>
                               {cat.nombre}

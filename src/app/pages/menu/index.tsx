@@ -27,13 +27,7 @@ const Index = () => {
         <h1 className="banner-title">
           Control De <span>Notas</span>
         </h1>
-        <div className="button-container">
-        <Link to="/comer-restaurante">
-          <button className="banner-button">
-            Notas <FaArrowRight />
-          </button>
-          </Link>
-        </div>
+      
       </div>
     </div>
     </ContentProvider>

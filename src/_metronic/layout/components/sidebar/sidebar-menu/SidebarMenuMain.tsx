@@ -17,7 +17,7 @@ const SidebarMenuMain = () => {
       <SidebarMenuItem
         to='/menu'
         icon='/media/icons/duotune/general/gen024.svg'
-        title='Menu'
+        title='Home'
         fontIcon='bi-layers'
       />
       { /*<SidebarMenuItem
@@ -54,33 +54,22 @@ const SidebarMenuMain = () => {
             <SidebarMenuItem to='/administracion/usuarios/nuevo' title='Listado' hasBullet={true} />
           </SidebarMenuItemWithSub>
 
-          
-       <SidebarMenuItemWithSub
-            to='/administracion/categorias'
-            title='Pro'
-            icon='/media/icons/duotune/communication/com006.svg'
-            fontIcon='bi-layers'
-          >
-            <SidebarMenuItem
-              to='/administracion/categorias/listado'
-              title='Listado'
-              fontIcon='bi-archive'
-              icon='/media/icons/duotune/general/gen022.svg'
-            />
-          </SidebarMenuItemWithSub>
+      
           <SidebarMenuItemWithSub
-            to='/administracion/notas'
-            title='Notas'
+            to='/administracion/Maestros'
+            title='Maestros'
             icon='/media/icons/duotune/communication/com006.svg'
             fontIcon='bi-layers'
           >
          <SidebarMenuItem
-              to='/administracion/notas/listado'
+              to='/administracion/Maestros/listado'
               title='Listado'
               fontIcon='bi-archive'
               icon='/media/icons/duotune/general/gen022.svg'
             />
           </SidebarMenuItemWithSub>
+
+         
           <SidebarMenuItemWithSub
             to='/administracion/estudiantes'
             title='Estudiantes'
@@ -94,7 +83,23 @@ const SidebarMenuMain = () => {
               icon='/media/icons/duotune/general/gen022.svg'
             />
           </SidebarMenuItemWithSub>
+
+          <SidebarMenuItemWithSub
+            to='/administracion/notas'
+            title='Notas'
+            icon='/media/icons/duotune/communication/com006.svg'
+            fontIcon='bi-layers'
+          >
+         <SidebarMenuItem
+              to='/administracion/notas/listado'
+              title='Listado'
+              fontIcon='bi-archive'
+              icon='/media/icons/duotune/general/gen022.svg'
+            />
+          </SidebarMenuItemWithSub>
+          
         </>
+        
       )}
       {/* <SidebarMenuItem
         to='/proveedores'

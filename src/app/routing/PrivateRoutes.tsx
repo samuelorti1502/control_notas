@@ -14,6 +14,8 @@ import Rol from '../pages/rol/'
 import Usuarios from '../pages/usuarios/'
 import Menu from '../pages/menu'
 import Prod from '../pages/notas'
+import Maestros from '../pages/Maestros'
+
 import Estu from '../pages/estudiantes'
 import Cat from '../pages/categorias'
 
@@ -59,6 +61,14 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <Prod />
+            </SuspensedView>
+          }
+        />
+           <Route
+          path='administracion/Maestros/*'
+          element={
+            <SuspensedView>
+              <Maestros />
             </SuspensedView>
           }
         />

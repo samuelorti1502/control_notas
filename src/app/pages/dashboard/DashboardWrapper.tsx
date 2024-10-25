@@ -32,14 +32,6 @@ const DashboardPage: FC = () => (
       <h1 className='banner-title'>
         Control De <span>Notas</span>
       </h1>
-      <div className='button-container'>
-        <Link to='/asignar-mesa'>
-          <button className='banner-button'>
-            Notasl <FaArrowRight />
-          </button>
-        </Link>
-       
-      </div>
     </div>
   </div>
 )
@@ -48,7 +40,7 @@ const DashboardWrapper: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
+      
       <DashboardPage />
     </>
   )
