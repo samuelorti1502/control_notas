@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
-import { FormUser } from './form';
+import { FormEstu } from './form';
 import EliminarNota from './EliminarProducto';
 import { createClient } from '@supabase/supabase-js';
 
@@ -20,17 +20,22 @@ const Index = () => {
 
   // Llamamos a la función para obtener datos de Supabase cuando el componente se monta
   useEffect(() => {
-    getUsuarios();
+    getAsignaturas();
   }, []);
 
-  async function getUsuarios() {
-    const { data, error } = await supabase.from('usuarios').select();
+  async function getAsignaturas() {
+    const { data, error } = await supabase.from('asignaturas').select();
     if (error) {
       console.error('Error fetching data:', error);
     } else {
       setAllData(data);
     }
   }
+
+  // Función que se llama después de crear o actualizar una asignatura
+  const handleStudentCreated = () => {
+    getAsignaturas(); // Actualiza la lista de asignaturas
+  };
 
   const handleShowEliminar = (row) => {
     setSelectedRecord(row);
@@ -48,16 +53,16 @@ const Index = () => {
 
   const columns = [
     {
-      name: 'ID Usuario',
-      selector: (row) => row.usuario_id,
+      name: 'ID Asignatura',
+      selector: (row) => row.asignatura_id,
     },
     {
       name: 'Nombres',
       selector: (row) => row.nombre,
     },
     {
-      name: 'Apellidos',
-      selector: (row) => row.apellido,
+      name: 'Descripción',
+      selector: (row) => row.descripcion,
     },
     {
       name: 'Acciones',
@@ -120,16 +125,22 @@ const Index = () => {
     <div>
       <DataTable
         className='form w-100'
-        title='Usuarios'
+        title='Asignaturas'
         columns={columns}
         data={allData}
         pagination
         customStyles={tableCustomStyles}
       />
-      <FormUser mostrar={mostrar} setMostrar={setMostrar} tipo={tipo} datos={datosFila} />
+      <FormEstu
+        mostrar={mostrar}
+        setMostrar={setMostrar}
+        tipo={tipo}
+        datos={datosFila}
+        onStudentCreated={handleStudentCreated} // Pasar la función al componente hijo
+      />
       {showDelete && (
         <EliminarNota
-          modalTitle='Eliminar Nota'
+          modalTitle='Eliminar Asignatura'
           show={showDelete}
           handleClose={handleCloseModalEliminar}
           selectedUser={selectedRecord}

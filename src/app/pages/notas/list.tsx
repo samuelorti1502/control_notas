@@ -1,126 +1,89 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Button } from 'react-bootstrap'
-import DataTable from 'react-data-table-component'
-import { FormNotas} from './form'
-import EliminarNota from './EliminarProducto'
+import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import DataTable from 'react-data-table-component';
+import { FormEstu } from './form';
+import EliminarNota from './EliminarProducto';
+import { createClient } from '@supabase/supabase-js';
 
-
+const API_URL = process.env.REACT_APP_SUPABASE_URL;
+const API_Key = process.env.REACT_APP_SUPABASE_ANON_KEY;
+const supabase = createClient(API_URL, API_Key);
 
 const Index = () => {
+  // Estado para la tabla
+  const [allData, setAllData] = useState([]);
+  const [showDelete, setShowDelete] = useState(false);
+  const [selectedRecord, setSelectedRecord] = useState(null);
+  const [mostrar, setMostrar] = useState(false);
+  const [tipo, setTipo] = useState(0);
+  const [datosFila, setDatosFila] = useState();
+
+  // Llamamos a la función para obtener datos de Supabase cuando el componente se monta
+  useEffect(() => {
+    getNotas();
+  }, []);
 
 
- // Estado para la tabla
- const [allData, setAllData] = useState([]);
- const [showDelete, setShowDelete] = useState(false);
- const [selectedRecord, setSelectedRecord] = useState(null);
+  async function getNotas() {
+    const { data, error } = await supabase
+    
+    .from('calificaciones')
+    .select('calificacion_id,calificacion,estudiantes (nombre),asignaturas (nombre), usuarios (nombre),tipoNota (tipo)')
+   // .eq('calificaciones.estudiante_id', 'estudiantes.estudiante_id');
 
 
- // Simulamos una función que devuelve algunos registros desde una "API"
- const fetchSimulatedData = () => {
-  const data = [
+    if (error) {
+      console.error('Error fetching data:', error);
+    } else {
+      setAllData(data);
+    }
+  }
+
+  // Función que se llama después de crear o actualizar una asignatura
+  const handleStudentCreated = () => {
+    getNotas(); // Actualiza la lista de asignaturas
+  };
+
+  const handleShowEliminar = (row) => {
+    setSelectedRecord(row);
+    setShowDelete(true);
+  };
+
+  const handleCloseModalEliminar = () => {
+    setSelectedRecord(null);
+    setShowDelete(false);
+  };
+
+  const handleShowM = () => {
+    setMostrar(true);
+  };
+
+  const columns = [
     {
-      id_estudiante: 1,
-      nombre_estudiante: 'Juan Pérez',
-      asignatura: 'Matemáticas',
-      examen1: 80,
-      examen2: 85,
-      zona: 90,
-      examenFinal: 88,
-      total: 86,
+      name: 'ID Calificacion',
+      selector: (row) => row.calificacion_id,
     },
     {
-      id_estudiante: 2,
-      nombre_estudiante: 'María López',
-      asignatura: 'Ciencias',
-      examen1: 75,
-      examen2: 80,
-      zona: 85,
-      examenFinal: 90,
-      total: 83,
+      name: 'Estudiante',
+      selector: (row) => row.estudiantes.nombre, 
     },
     {
-      id_estudiante: 3,
-      nombre_estudiante: 'Carlos García',
-      asignatura: 'Historia',
-      examen1: 70,
-      examen2: 75,
-      zona: 80,
-      examenFinal: 85,
-      total: 78,
+      name: 'Asignatura',
+      selector: (row) => row.asignaturas.nombre,
     },
     {
-      id_estudiante: 4,
-      nombre_estudiante: 'Ana Hernández',
-      asignatura: 'Inglés',
-      examen1: 85,
-      examen2: 90,
-      zona: 95,
-      examenFinal: 92,
-      total: 90,
+      name: 'Usuario / Maestro',
+      selector: (row) => row.usuarios.nombre,
     },
-  ];
-  setAllData(data);
-};
-
-// Llamamos a la función simulada cuando el componente se monta
-useEffect(() => {
-  fetchSimulatedData();
-}, []);
-
-const handleShowEliminar = (row) => {
-  setSelectedRecord(row);
-  setShowDelete(true);
-}
-
-const handleCloseModalEliminar = () => {
-  setSelectedRecord(null);
-  setShowDelete(false);
-}
-
-
-const [mostrar, setMostrar] = useState(false)
-const [tipo, setTipo] = useState(0)
-const [datosFila, setDatosFila] = useState()
-
-const handleShowM = () => {
-  setMostrar(true)
-}
-
-const columns = [
-  {
-    name: 'ID Estudiante',
-    selector: (row) => row.id_estudiante,
-  },
-  {
-    name: 'Nombre',
-    selector: (row) => row.nombre_estudiante,
-  },
-  {
-    name: 'Asignatura',
-    selector: (row) => row.asignatura,
-  },
-  {
-    name: 'Examen 1',
-    selector: (row) => row.examen1,
-  },
-  {
-    name: 'Examen 2',
-    selector: (row) => row.examen2,
-  },
-  {
-    name: 'Zona',
-    selector: (row) => row.zona,
-  },
-  {
-    name: 'Examen Final',
-    selector: (row) => row.examenFinal,
-  },
-  {
-    name: 'Total',
-    selector: (row) => row.total,
-  },
-
-  {
+    {
+      name: 'Tipo de calificación',
+      selector: (row) => row.tipoNota.tipo,
+    },
+    {
+      name: 'Calificacion',
+      selector: (row) => row.calificacion,
+    },
+    {
       name: 'Acciones',
       cell: (row) => (
         <div>
@@ -135,9 +98,9 @@ const columns = [
             variant='warning'
             className='ms-3 btn-sm btn-icon'
             onClick={() => {
-              handleShowM()
-              setTipo(1)
-              setDatosFila(row)
+              handleShowM();
+              setTipo(1);
+              setDatosFila(row);
             }}
           >
             <i className='bi bi-pencil' />
@@ -145,7 +108,7 @@ const columns = [
         </div>
       ),
     },
-  ]
+  ];
 
   const tableCustomStyles = {
     table: {
@@ -167,37 +130,43 @@ const columns = [
         paddingLeft: '0 8px',
         justifyContent: 'center',
         backgroundColor: '#FFA500',
-      }
+      },
     },
     cells: {
       style: {
         fontSize: '12px',
         justifyContent: 'center',
-      }
-    }
-  }
+      },
+    },
+  };
 
   return (
     <div>
       <DataTable
         className='form w-100'
-        title='Control de Notas'
+        title='Calificaciones'
         columns={columns}
         data={allData}
         pagination
         customStyles={tableCustomStyles}
       />
-      <FormNotas mostrar={mostrar} setMostrar={setMostrar} tipo={tipo} datos={datosFila} />
+      <FormEstu
+        mostrar={mostrar}
+        setMostrar={setMostrar}
+        tipo={tipo}
+        datos={datosFila}
+        onStudentCreated={handleStudentCreated} // Pasar la función al componente hijo
+      />
       {showDelete && (
         <EliminarNota
-          modalTitle='Eliminar Nota'
+          modalTitle='Eliminar Asignatura'
           show={showDelete}
           handleClose={handleCloseModalEliminar}
           selectedUser={selectedRecord}
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

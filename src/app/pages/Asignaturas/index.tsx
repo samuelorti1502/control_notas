@@ -5,7 +5,7 @@ import { ContentProvider } from './context'
 import Listado from './list'
 
 const Index = () => {
-    const [modalTitle, setModalTitle] = useState('Nueva calificación');
+    const [modalTitle, setModalTitle] = useState('Nuevo Producto');
     const [mostrar, setMostrar] = useState(false);
     const [tipo, setTipo] = useState(0)
 
@@ -24,7 +24,7 @@ const Index = () => {
                 }}
 
             >
-                Agregar Calificación
+                Agregar Asignatura
             </Button>
 
             <FormEstu mostrar={mostrar} setMostrar={setMostrar} tipo={0} />

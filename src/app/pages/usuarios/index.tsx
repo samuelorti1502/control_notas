@@ -1,18 +1,36 @@
-import { Row, Col, Form } from 'react-bootstrap'
-import Formulario from './form'
-import EditarUsuario from './EditarUsuario'
-import Lista from './list'
-import { ContentProvider } from './context'
 import { useState } from 'react'
+import { Button } from 'react-bootstrap'
+import { FormUser } from './form'
+import { ContentProvider } from './context'
+import Listado from './list'
+
 const Index = () => {
+    const [modalTitle, setModalTitle] = useState('Nueva Asignatura');
+    const [mostrar, setMostrar] = useState(false);
+    const [tipo, setTipo] = useState(0)
 
-  const [modalTitle] = useState('Registrar un nuevo usuario');
+    const handleShow = () => {
+        setMostrar(true);
+    }
 
-  return (
-    <ContentProvider>
-      <Formulario modalTitle={modalTitle} />  
-      <Lista />   
-   </ContentProvider>
-  )
+    return (
+        <ContentProvider>
+            <Button
+                variant='primary'
+                style={{ background: 'linear-gradient(to right, #F2AC29, #FF5733)', color: 'white' }}
+                onClick={() => {
+                    handleShow();
+                    setTipo(0);
+                }}
+
+            >
+                Agregar Usuario
+            </Button>
+
+            <FormUser mostrar={mostrar} setMostrar={setMostrar} tipo={0} />
+
+            <Listado />
+        </ContentProvider>
+    )
 }
 export default Index

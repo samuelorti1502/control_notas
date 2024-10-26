@@ -15,6 +15,7 @@ import Usuarios from '../pages/usuarios/'
 import Menu from '../pages/menu'
 import Prod from '../pages/notas'
 import Maestros from '../pages/Maestros'
+import Asignaturas from '../pages/Asignaturas'
 
 import Estu from '../pages/estudiantes'
 import Cat from '../pages/categorias'
@@ -34,6 +35,7 @@ const PrivateRoutes = () => {
         <Route path='auth/*' element={<Navigate to='/menu' />} />
         {/* Pages */}
         <Route path='menu' element={<Menu />} />
+        <Route path='notas*' element={<Prod />} />
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='rol' element={<Rol />} />
         <Route path='asignar-mesa' element={<MesaAsignacion />} />
@@ -56,14 +58,6 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
-        <Route
-          path='administracion/notas/*'
-          element={
-            <SuspensedView>
-              <Prod />
-            </SuspensedView>
-          }
-        />
            <Route
           path='administracion/Maestros/*'
           element={
@@ -77,6 +71,15 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <Estu />
+            </SuspensedView>
+          }
+        />
+
+          <Route
+          path='administracion/Asignaturas/*'
+          element={
+            <SuspensedView>
+              <Asignaturas />
             </SuspensedView>
           }
         />

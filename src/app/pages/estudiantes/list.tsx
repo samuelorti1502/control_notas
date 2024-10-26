@@ -124,7 +124,7 @@ const Index = () => {
     <div>
       <DataTable
         className='form w-100'
-        title='Control de Notas'
+        title='Estudiantes'
         columns={columns}
         data={allData}
         pagination
